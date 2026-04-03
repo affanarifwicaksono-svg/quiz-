@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmoni Umat: Edisi Spesial Pak RT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="game-card">
+    <div id="header-game" class="header">
+        <h2 class="title">✨ HARMONI UMAT</h2>
+        <div class="stats-box">🤝 Skor: <span id="score-val">70</span></div>
+    </div>
+
+    <div id="prog-cont" class="progress-bar-container">
+        <div class="progress-bar-fill" id="prog-fill"></div>
+    </div>
+
+    <div id="play-screen">
+        <div class="photo-placeholder">
+            <div class="icon" id="photo-icon">🌙</div>
+            <div class="desc" id="photo-desc">RAMADHAN</div>
+        </div>
+        
+        <div class="question-text" id="q-text">Bismillah, memulai tugas mediasi umat...</div>
+        
+        <div class="btn-list">
+            <button onclick="handleChoice(0)" id="btn0"></button>
+            <button onclick="handleChoice(1)" id="btn1"></button>
+            <button onclick="handleChoice(2)" id="btn2"></button>
+        </div>
+    </div>
+
+    <div id="end-screen">
+        <div class="photo-placeholder finish-bg">
+            <div class="icon">🏆</div>
+            <div class="desc">SELESAI</div>
+        </div>
+        <h2 id="rank-val"></h2>
+        <p id="msg-val"></p>
+        <button class="btn-restart" onclick="location.reload()">MULAI LAGI</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
