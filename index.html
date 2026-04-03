@@ -3,44 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harmoni Umat: Edisi Spesial Pak RT</title>
+    <title>Harmoni Umat: Edisi Pemimpin Bijak</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="game-card">
-    <div id="header-game" class="header">
-        <h2 class="title">✨ HARMONI UMAT</h2>
-        <div class="stats-box">🤝 Skor: <span id="score-val">70</span></div>
+    <div id="welcome-screen">
+        <div class="photo-placeholder" style="background: #0a3622; border-color: #fffcf2; color: #d4af37; height: 150px;">
+            <div class="icon">🤝</div>
+            <div class="desc">HARMONI KAMPUNG</div>
+        </div>
+        <h1>Selamat Datang!</h1>
+        <p>Pilih identitas Bapak/Ibu untuk memulai mediasi warga.</p>
+        
+        <div class="gender-container">
+            <button class="gender-btn" id="btn-bapak" onclick="setGender('Bapak')">Bapak</button>
+            <button class="gender-btn" id="btn-ibu" onclick="setGender('Ibu')">Ibu</button>
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="player-name-input" placeholder="Masukkan Namamu..." maxlength="15" oninput="checkReady()">
+        </div>
+        
+        <button id="start-btn" onclick="startGame()" disabled>Masuk ke Kampung</button>
     </div>
 
+    <div id="header-game" class="header">
+        <h2 style="margin:0; color: #0a3622;">✨ HARMONI</h2>
+        <div class="stats-box">🤝 Skor: <span id="score-val">70</span></div>
+    </div>
     <div id="prog-cont" class="progress-bar-container">
         <div class="progress-bar-fill" id="prog-fill"></div>
     </div>
-
     <div id="play-screen">
         <div class="photo-placeholder">
             <div class="icon" id="photo-icon">🌙</div>
             <div class="desc" id="photo-desc">RAMADHAN</div>
         </div>
         
-        <div class="question-text" id="q-text">Bismillah, memulai tugas mediasi umat...</div>
+        <div class="question-text">
+            <span id="player-title" style="color: #b8860b;">...</span> <span id="player-name" style="color: #b8860b;">...</span>, <span id="q-text">Bismillah...</span>
+        </div>
         
         <div class="btn-list">
-            <button onclick="handleChoice(0)" id="btn0"></button>
-            <button onclick="handleChoice(1)" id="btn1"></button>
-            <button onclick="handleChoice(2)" id="btn2"></button>
+            <button onclick="handleChoice(0)" id="btn0" class="choice-btn"></button>
+            <button onclick="handleChoice(1)" id="btn1" class="choice-btn"></button>
+            <button onclick="handleChoice(2)" id="btn2" class="choice-btn"></button>
         </div>
     </div>
 
     <div id="end-screen">
-        <div class="photo-placeholder finish-bg">
+        <div class="photo-placeholder" style="background: #d4af37; height: 150px;">
             <div class="icon">🏆</div>
-            <div class="desc">SELESAI</div>
+            <div class="desc">HASIL AKHIR</div>
         </div>
         <h2 id="rank-val"></h2>
-        <p id="msg-val"></p>
-        <button class="btn-restart" onclick="location.reload()">MULAI LAGI</button>
+        <p id="msg-val" style="font-size: 1.1rem; color: #333;"></p>
+        <button onclick="location.reload()" class="start-btn-alt">MAIN LAGI</button>
     </div>
 </div>
 

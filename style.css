@@ -1,10 +1,14 @@
+/* CSS UTAMA */
 body { 
     background: #0a3622; 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    font-family: 'Segoe UI', sans-serif; 
     display: flex; 
     justify-content: center; 
     padding: 20px; 
     color: #fff; 
+    margin: 0; 
+    min-height: 100vh; 
+    align-items: center;
 }
 
 .game-card { 
@@ -16,115 +20,75 @@ body {
     max-width: 650px; 
     box-shadow: 0 15px 35px rgba(0,0,0,0.5); 
     border: 5px solid #d4af37; 
+    position: relative; 
+    overflow: hidden;
 }
 
-.header { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    border-bottom: 3px solid #d4af37; 
-    padding-bottom: 15px; 
-    margin-bottom: 20px; 
-}
-
-.title { margin: 0; color: #0a3622; }
-
-.stats-box { 
-    background: #0a3622; 
-    color: #d4af37; 
-    padding: 8px 20px; 
-    border-radius: 10px; 
-    font-weight: bold; 
-    border: 2px solid #d4af37; 
-    font-size: 1.1rem; 
-}
-
-.progress-bar-container { 
-    background: #e0e0e0; 
-    height: 10px; 
-    border-radius: 5px; 
-    margin-bottom: 20px; 
-    overflow: hidden; 
-    border: 1px solid #b3b3b3; 
-}
-
-.progress-bar-fill { 
-    background: linear-gradient(90deg, #d4af37, #b8860b); 
-    height: 100%; 
-    width: 0%; 
-    transition: 0.7s; 
-}
-
-.photo-placeholder { 
-    width: 100%; 
-    height: 250px; 
-    border-radius: 10px; 
-    margin-bottom: 20px; 
-    border: 4px solid #d4af37; 
-    background: #f0e68c; 
+/* WELCOME SCREEN */
+#welcome-screen {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #fffcf2;
+    z-index: 100;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #0a3622;
+    text-align: center;
+    padding: 30px;
+    box-sizing: border-box;
+    transition: 0.5s ease-out;
+}
+
+#welcome-screen h1 { color: #0a3622; margin-bottom: 5px; border-bottom: 3px solid #d4af37; padding-bottom: 10px; }
+#welcome-screen p { color: #333; font-size: 1rem; margin-bottom: 25px; }
+
+.gender-container { display: flex; gap: 15px; margin-bottom: 20px; }
+.gender-btn {
+    padding: 10px 20px;
+    border: 2px solid #0a3622;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
     font-weight: bold;
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+    transition: 0.3s;
 }
 
-.finish-bg { background: #d4af37; }
+.gender-btn.active { background: #0a3622; color: white; }
 
-.photo-placeholder .icon { font-size: 4rem; margin-bottom: 10px; }
-.photo-placeholder .desc { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; }
-
-.question-text { 
-    font-size: 1.15rem; 
-    font-weight: bold; 
-    color: #0a3622; 
-    line-height: 1.6; 
-    margin-bottom: 25px; 
-    border-left: 5px solid #d4af37; 
-    padding-left: 15px; 
-    text-align: left; 
+.input-group { margin-bottom: 25px; width: 80%; }
+#player-name-input {
+    width: 100%; padding: 15px; border: 3px solid #0a3622; border-radius: 12px;
+    font-size: 1.1rem; color: #0a3622; font-weight: bold; background: #fdfae5;
+    outline: none; text-align: center; box-sizing: border-box;
 }
 
-.btn-list { display: flex; flex-direction: column; gap: 12px; }
-
-button { 
-    padding: 18px; 
-    border: 2px solid #d4af37; 
-    border-radius: 12px; 
-    background: #0a3622; 
-    color: #fffcf2; 
-    font-weight: bold; 
-    cursor: pointer; 
-    transition: 0.3s; 
-    text-align: left; 
-    box-shadow: 0 4px 0 #b8860b; 
+#start-btn, .start-btn-alt {
+    background: #d4af37; color: #0a3622; padding: 15px 40px; font-size: 1.1rem;
+    font-weight: 800; border: none; border-radius: 12px; cursor: pointer;
+    box-shadow: 0 5px 0 #b8860b; transition: 0.2s; text-transform: uppercase;
 }
 
-button:hover { background: #145c3a; transform: translateY(-2px); box-shadow: 0 6px 0 #b8860b; }
-button:active { transform: translateY(2px); box-shadow: 0 1px 0 #b8860b; }
+#start-btn:disabled { background: #ccc; box-shadow: none; cursor: not-allowed; opacity: 0.6; }
+
+/* GAMEPLAY */
+.header { display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #d4af37; padding-bottom: 15px; margin-bottom: 20px; }
+.stats-box { background: #0a3622; color: #d4af37; padding: 8px 20px; border-radius: 10px; font-weight: bold; border: 2px solid #d4af37; font-size: 1.1rem; }
+.progress-bar-container { background: #e0e0e0; height: 10px; border-radius: 5px; margin-bottom: 20px; overflow: hidden; border: 1px solid #b3b3b3; }
+.progress-bar-fill { background: linear-gradient(90deg, #d4af37, #b8860b); height: 100%; width: 0%; transition: 0.7s; }
+
+.photo-placeholder { width: 100%; height: 220px; border-radius: 10px; margin-bottom: 20px; border: 4px solid #d4af37; background: #f0e68c; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #0a3622; font-weight: bold; }
+.photo-placeholder .icon { font-size: 3.5rem; margin-bottom: 10px; }
+.photo-placeholder .desc { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; }
+
+.question-text { font-size: 1.1rem; font-weight: bold; color: #0a3622; line-height: 1.5; margin-bottom: 20px; border-left: 5px solid #d4af37; padding-left: 15px; }
+.btn-list { display: flex; flex-direction: column; gap: 10px; }
+.choice-btn { 
+    padding: 15px; border: 2px solid #d4af37; border-radius: 12px; 
+    background: #0a3622; color: #fffcf2; font-weight: bold; 
+    cursor: pointer; transition: 0.3s; text-align: left; 
+}
 
 #end-screen { display: none; text-align: center; }
-
-#rank-val { 
-    font-size: 2rem; 
-    color: #0a3622; 
-    font-weight: 800; 
-    margin: 20px 0; 
-    text-transform: uppercase; 
-    border-bottom: 2px solid #d4af37; 
-    display: inline-block; 
-    padding-bottom: 5px; 
-}
-
-#msg-val { font-size: 1.1rem; color: #333; font-weight: 500; margin-bottom: 25px; }
-
-.btn-restart { 
-    background: #d4af37; 
-    color: #0a3622; 
-    text-align: center; 
-    padding: 15px 30px; 
-    width: auto; 
-    display: inline-block;
-}
+#rank-val { font-size: 1.8rem; color: #0a3622; font-weight: 800; margin: 15px 0; border-bottom: 2px solid #d4af37; display: inline-block; }
